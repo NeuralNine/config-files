@@ -125,6 +125,7 @@ alias desk="cd /mnt/c/users/flori/Desktop"
 alias nconf="cd ~/.config/nvim"
 alias cnconf="nvim ~/.config/nvim/init.vim"
 alias vg="valgrind"
+alias vgall="valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes"
 
 PATH=/usr/bin/node:$PATH
 PATH=$PATH:/usr/local/go/bin
