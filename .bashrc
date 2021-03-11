@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-cd /mnt/c/users/flori
+cd /mnt/c/users/flori/Desktop
 
 alias pydir="cd /mnt/c/users/flori/Desktop/Programming/Python"
 alias godir="cd /mnt/c/users/flori/Desktop/Programming/Go"
