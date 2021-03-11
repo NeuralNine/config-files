@@ -133,3 +133,4 @@ alias vgall="valgrind -s --leak-check=full --show-leak-kinds=all --track-origins
 PATH=/usr/bin/node:$PATH
 PATH=$PATH:/usr/local/go/bin
 
+export DISPLAY=localhost:0.0 # XMING Server
