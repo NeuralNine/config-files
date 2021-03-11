@@ -121,11 +121,15 @@ cd /mnt/c/users/flori
 alias pydir="cd /mnt/c/users/flori/Desktop/Programming/Python"
 alias godir="cd /mnt/c/users/flori/Desktop/Programming/Go"
 alias unidir="cd /mnt/c/users/flori/Desktop/University/3rd\ Semester"
+alias neuraldir="cd /mnt/c/users/flori/Desktop/Programming/Python/NeuralNine"
 alias desk="cd /mnt/c/users/flori/Desktop"
-alias nconf="cd ~/.config/nvim"
-alias cnconf="nvim ~/.config/nvim/init.vim"
+alias ncdir="cd ~/.config/nvim"
+alias ncf="nvim ~/.config/nvim/init.vim"
+alias brc="nvim ~/.bashrc"
+alias nv="nvim"
 alias vg="valgrind"
 alias vgall="valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes"
 
 PATH=/usr/bin/node:$PATH
 PATH=$PATH:/usr/local/go/bin
+
