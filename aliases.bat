@@ -7,3 +7,4 @@ DOSKEY pydir=cd "C:\Users\flori\Desktop\Programming\Python"
 DOSKEY neuraldir=cd "C:\Users\flori\Desktop\Programming\Python\NeuralNine"
 DOSKEY desk=cd "C:\Users\flori\Desktop"
 DOSKEY videodir=cd "C:\Users\flori\Desktop\Programming\Python\NeuralNine\videos"
+DOSKEY ls=dir
