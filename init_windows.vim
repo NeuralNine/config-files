@@ -1,4 +1,4 @@
-" Plugins
+ "Plugins
 
 call plug#begin()
 
@@ -20,6 +20,7 @@ Plug 'github/copilot.vim'
 Plug 'https://github.com/mbbill/undotree'
 Plug 'https://github.com/numirias/semshi'
 Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'luochen1990/rainbow'
 
 call plug#end()
 
@@ -87,3 +88,5 @@ function MyCustomHighlights()
 	hi semshiSelected    ctermfg=white guifg=#dddddd ctermbg=gray guibg=#454c5a
 endfunction
 autocmd FileType python call MyCustomHighlights()
+
+let g:rainbow_active = 1
