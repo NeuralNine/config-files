@@ -20,7 +20,6 @@ Plug 'github/copilot.vim'
 Plug 'https://github.com/mbbill/undotree'
 Plug 'https://github.com/numirias/semshi'
 Plug 'https://github.com/tpope/vim-fugitive'
-Plug 'luochen1990/rainbow'
 
 call plug#end()
 
@@ -83,10 +82,8 @@ let g:dashboard_default_executive ='fzf'
 
 function MyCustomHighlights()
     hi semshiGlobal      ctermfg=blue guifg=#61afef
-	hi semshiImported    ctermfg=red guifg=#f4aac4 cterm=bold gui=bold
-	hi semshiBuiltin     ctermfg=yellow guifg=#e5c07b
+	hi semshiImported    ctermfg=red guifg=#d28fd7 cterm=bold gui=bold
+	hi semshiBuiltin     ctermfg=yellow guifg=#f5d08b
 	hi semshiSelected    ctermfg=white guifg=#dddddd ctermbg=gray guibg=#454c5a
 endfunction
 autocmd FileType python call MyCustomHighlights()
-
-let g:rainbow_active = 1
