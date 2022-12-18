@@ -35,7 +35,7 @@ nmap <F8> :TagbarToggle<CR>
 
 :set completeopt-=preview " For No Previews
 
-:colorscheme jellybeans
+:colorscheme desert
 
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
