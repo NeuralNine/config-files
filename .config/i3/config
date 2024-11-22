@@ -1,0 +1,260 @@
+set $mod Mod4
+
+font pango:JetBrainsMono Nerd Font Mono 10
+
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+exec --no-startup-id nm-applet
+
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+floating_modifier $mod
+
+bindsym $mod+Return exec --no-startup-id alacritty
+
+bindsym $mod+q kill
+
+bindsym $mod+d exec --no-startup-id dmenu_run
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+g split h
+
+bindsym $mod+v split v
+
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+a focus parent
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+mode "resize" {
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/od_autumn.jpg
+
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+focus_follows_mouse no
+
+client.focused          #282c34  #282c34  #abb2bf   #528bff   #282c34
+client.focused_inactive #3e4451  #21252b  #5c6370   #3e4451   #21252b
+client.unfocused        #3e4451  #21252b  #5c6370   #21252b   #21252b
+client.urgent           #e06c75  #282c34  #ffffff   #e06c75   #282c34
+client.placeholder      #21252b  #21252b  #5c6370   #21252b   #21252b
+
+client.background       #282c34
+
+
+default_border pixel 1
+default_floating_border pixel 1
+
+
+gaps outer 2
+gaps inner 5
+
+hide_edge_borders none
+
+client.focused #00aaff #00aaff #00aaff #00aaff
+
+exec --no-startup-id picom --config ~/.config/picom.conf
+
+set $left DP-4
+set $center HDMI-0
+set $right DP-2
+
+set $ws1_left "1:left"
+set $ws1_center "1:center"
+set $ws1_right "1:right"
+set $ws2_left "2:left"
+set $ws2_center "2:center"
+set $ws2_right "2:right"
+set $ws3_left "3:left"
+set $ws3_center "3:center"
+set $ws3_right "3:right"
+set $ws4_left "4:left"
+set $ws4_center "4:center"
+set $ws4_right "4:right"
+set $ws5_left "5:left"
+set $ws5_center "5:center"
+set $ws5_right "5:right"
+set $ws6_left "6:left"
+set $ws6_center "6:center"
+set $ws6_right "6:right"
+set $ws7_left "7:left"
+set $ws7_center "7:center"
+set $ws7_right "7:right"
+set $ws8_left "8:left"
+set $ws8_center "8:center"
+set $ws8_right "8:right"
+set $ws9_left "9:left"
+set $ws9_center "9:center"
+set $ws9_right "9:right"
+
+workspace $ws1_left output $left
+workspace $ws1_center output $center
+workspace $ws1_right output $right
+workspace $ws2_left output $left
+workspace $ws2_center output $center
+workspace $ws2_right output $right
+workspace $ws3_left output $left
+workspace $ws3_center output $center
+workspace $ws3_right output $right
+workspace $ws4_left output $left
+workspace $ws4_center output $center
+workspace $ws4_right output $right
+workspace $ws5_left output $left
+workspace $ws5_center output $center
+workspace $ws5_right output $right
+workspace $ws6_left output $left
+workspace $ws6_center output $center
+workspace $ws6_right output $right
+workspace $ws7_left output $left
+workspace $ws7_center output $center
+workspace $ws7_right output $right
+workspace $ws8_left output $left
+workspace $ws8_center output $center
+workspace $ws8_right output $right
+workspace $ws9_left output $left
+workspace $ws9_center output $center
+workspace $ws9_right output $right
+
+bindsym $mod+1 \
+    focus output $left; workspace $ws1_left; \
+    focus output $center; workspace $ws1_center; \
+    focus output $right; workspace $ws1_right; \
+    focus output $center
+
+bindsym $mod+2 \
+    focus output $left; workspace $ws2_left; \
+    focus output $center; workspace $ws2_center; \
+    focus output $right; workspace $ws2_right; \
+    focus output $center
+
+bindsym $mod+3 \
+    focus output $left; workspace $ws3_left; \
+    focus output $center; workspace $ws3_center; \
+    focus output $right; workspace $ws3_right; \
+    focus output $center
+
+bindsym $mod+4 \
+    focus output $left; workspace $ws4_left; \
+    focus output $center; workspace $ws4_center; \
+    focus output $right; workspace $ws4_right; \
+    focus output $center
+
+bindsym $mod+5 \
+    focus output $left; workspace $ws5_left; \
+    focus output $center; workspace $ws5_center; \
+    focus output $right; workspace $ws5_right; \
+    focus output $center
+
+bindsym $mod+6 \
+    focus output $left; workspace $ws6_left; \
+    focus output $center; workspace $ws6_center; \
+    focus output $right; workspace $ws6_right; \
+    focus output $center
+
+bindsym $mod+7 \
+    focus output $left; workspace $ws7_left; \
+    focus output $center; workspace $ws7_center; \
+    focus output $right; workspace $ws7_right; \
+    focus output $center
+
+bindsym $mod+8 \
+    focus output $left; workspace $ws8_left; \
+    focus output $center; workspace $ws8_center; \
+    focus output $right; workspace $ws8_right; \
+    focus output $center
+
+bindsym $mod+9 \
+    focus output $left; workspace $ws9_left; \
+    focus output $center; workspace $ws9_center; \
+    focus output $right; workspace $ws9_right; \
+    focus output $center
+
+bindsym $mod+Shift+1 move container to workspace number $ws1_center
+bindsym $mod+Shift+2 move container to workspace number $ws2_center
+bindsym $mod+Shift+3 move container to workspace number $ws3_center
+bindsym $mod+Shift+4 move container to workspace number $ws4_center
+bindsym $mod+Shift+5 move container to workspace number $ws5_center
+bindsym $mod+Shift+6 move container to workspace number $ws6_center
+bindsym $mod+Shift+7 move container to workspace number $ws7_center
+bindsym $mod+Shift+8 move container to workspace number $ws8_center
+bindsym $mod+Shift+9 move container to workspace number $ws9_center
+
+bindsym $mod+b exec --no-startup-id firefox
+bindsym $mod+s exec --no-startup-id fsearch
+bindsym $mod+n exec --no-startup-id nautilus
+bindsym $mod+o exec --no-startup-id obsidian
+bindsym $mod+m exec --no-startup-id thunderbird
+
+bindsym $mod+x exec --no-startup-id betterlockscreen -l blur
+
+bindsym Print exec --no-startup-id flameshot gui
+bindsym $mod+Print exec --no-startup-id flameshot full -p ~/Pictures/Screenshots
+
+bindsym $mod+period exec --no-startup-id /home/neuralnine/Documents/dmoji_script.sh
+
+exec_always --no-startup-id setxkbmap us -variant altgr-intl
+
+exec_always --no-startup-id xinput map-to-output 22 HDMI-0
+
+exec_always --no-startup-id xmousepasteblock

@@ -7,19 +7,20 @@ Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'https://github.com/preservim/nerdtree' ", {'on': 'NERDTreeToggle'}
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
-Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
-Plug 'https://github.com/RRethy/nvim-base16' " Base16 Color Schemes
-Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
 Plug 'https://github.com/preservim/tagbar', {'on': 'TagbarToggle'} " Tagbar for code navigation
-Plug 'https://github.com/dkarter/bullets.vim'
 Plug 'https://github.com/junegunn/fzf.vim' " Fuzzy Finder, Needs Silversearcher-ag for :Ag
 Plug 'https://github.com/junegunn/fzf'
-Plug 'https://github.com/glepnir/dashboard-nvim'
-Plug 'https://github.com/davidhalter/jedi-vim'
-Plug 'github/copilot.vim'
+Plug 'https://github.com/navarasu/onedark.nvim'
+Plug 'https://github.com/morhetz/gruvbox'
+Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/mbbill/undotree'
-Plug 'https://github.com/numirias/semshi'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'https://github.com/lepture/vim-jinja'
 Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/matze/vim-move'
+Plug 'voldikss/vim-floaterm'
+Plug 'vim-python/python-syntax'
+Plug 'alvan/vim-closetag'
 
 call plug#end()
 
@@ -34,9 +35,17 @@ set softtabstop=4
 set shiftwidth=4
 set smarttab
 set encoding=UTF-8
+set visualbell
+set scrolloff=5
 
-:colorscheme base16-onedark
+" :colorscheme base16-onedark
+:colorscheme onedark
 let g:airline_theme='onedark'
+
+" :colorscheme gruvbox
+" let g:airline_theme='gruvbox'
+
+" lua require('test')
 
 " NERDTree Configuration
 
@@ -72,18 +81,30 @@ let g:airline_symbols.linenr = ''
 
 " Tagbar
 
-nmap <F8> :TagbarToggle<CR>
+nmap <F6> :TagbarToggle<CR>
 
-" Dashboard
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
-let g:dashboard_default_executive ='fzf'
+" Note -> Use CocList diagnostics to get all linter errors, Note -> .vim
+" folder is created for every project where linter is specified
 
-" Semshi Custom Highlightss
+nnoremap <F3> :noh<CR>
 
-function MyCustomHighlights()
-    hi semshiGlobal      ctermfg=blue guifg=#61afef
-	hi semshiImported    ctermfg=red guifg=#d28fd7 cterm=bold gui=bold
-	hi semshiBuiltin     ctermfg=yellow guifg=#f5d08b
-	hi semshiSelected    ctermfg=white guifg=#dddddd ctermbg=gray guibg=#454c5a
-endfunction
-autocmd FileType python call MyCustomHighlights()
+
+
+let g:floaterm_keymap_new    = '<F7>'
+let g:floaterm_keymap_prev   = '<F8>'
+let g:floaterm_keymap_next   = '<F9>'
+let g:floaterm_keymap_toggle = '<F12>'
+nnoremap <F5> :w<CR>:FloatermNew --autoclose=0 python3 %<CR>
+
+
+let g:coc_disable_startup_warning = 1
+
+let g:python_highlight_all = 1
+
+" au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<C-H>"
+
