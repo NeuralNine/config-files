@@ -110,3 +110,5 @@ eval "$(direnv hook bash)"
 . /usr/share/autojump/autojump.sh
 
 export PATH=/opt/docker-desktop/bin:$PATH
+export PATH=$PATH:/usr/pgadmin4/bin
+
