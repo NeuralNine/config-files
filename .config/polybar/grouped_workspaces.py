@@ -3,16 +3,28 @@
 import i3ipc
 
 # Define mappings for workspace numbers
+# WORKSPACE_NAMES = {
+#     1: "main",
+#     2: "code",
+#     3: "work",
+#     4: "git",
+#     5: "communication",
+#     6: "video",
+#     7: "university",
+#     8: "fun",
+#     9: "misc"
+# }
+
 WORKSPACE_NAMES = {
-    1: "main",
-    2: "code",
-    3: "work",
-    4: "git",
-    5: "communication",
-    6: "video",
-    7: "university",
-    8: "fun",
-    9: "misc"
+    1: " main",              # Internet globe
+    2: " code",              # Laptop
+    3: " work",              # Briefcase
+    4: " git",               # Git branch
+    5: " msg",     # Message bubble
+    6: " video",             # Video cam
+    7: " uni",       # Graduation cap
+    8: " fun",               # Controller
+    9: " misc"              # Menu-like icon
 }
 
 def get_grouped_workspaces(i3):
