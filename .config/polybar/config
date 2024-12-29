@@ -45,7 +45,7 @@ separator = |
 separator-foreground = ${colors.disabled}
 
 modules-left = i3 xwindow
-modules-right = filesystem pulseaudio memory cpu date separator network
+modules-right = filesystem pulseaudio memory cpu date separator powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -167,6 +167,57 @@ date = %Y-%m-%d %H:%M:%S
 date-alt = %H:%M
 
 label = %date%
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = ""
+label-open-foreground = ${colors.urgent}
+label-close =  Cancel
+label-close-foreground = ${colors.success}
+label-separator = |
+label-separator-foreground = ${colors.foreground}
+
+;Powermenu
+menu-0-0 = "Reboot "
+menu-0-0-exec = menu-open-1
+menu-0-0-foreground = ${colors.urgent}
+
+menu-0-1 = "Power Off"
+menu-0-1-exec = menu-open-2
+menu-0-1-foreground = ${colors.urgent}
+
+menu-0-2 = "Hibernate"
+menu-0-2-exec = menu-open-3
+menu-0-2-foreground = ${colors.warning}
+
+;Reboot
+menu-1-0 = "Cancel "
+menu-1-0-exec = menu-open-0
+menu-1-0-foreground = ${colors.success}
+menu-1-1 = "Reboot"
+menu-1-1-exec = systemctl reboot
+menu-1-1-foreground = ${colors.urgent}
+
+;Shutdown
+menu-2-0 = "Power off"
+menu-2-0-exec = systemctl poweroff
+menu-2-0-foreground = ${colors.urgent}
+menu-2-1 = "Cancel "
+menu-2-1-exec = menu-open-0
+menu-2-1-foreground = ${colors.success}
+
+;Hibernate
+menu-3-0 = "Hibernate "
+menu-3-0-exec = systemctl hibernate
+menu-3-0-foreground = ${colors.urgent}
+menu-3-1 = "Cancel"
+menu-3-1-exec = menu-open-0
+menu-3-1-foreground = ${colors.success}
 
 [settings]
 screenchange-reload = true
