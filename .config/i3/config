@@ -255,6 +255,6 @@ bindsym $mod+period exec --no-startup-id /home/neuralnine/Documents/dmoji_script
 
 exec_always --no-startup-id setxkbmap us -variant altgr-intl
 
-exec_always --no-startup-id xinput map-to-output 22 HDMI-0
+exec_always --no-startup-id xinput map-to-output "XP-PEN STAR G640 Pen Pen (0)" HDMI-0
 
 exec_always --no-startup-id xmousepasteblock
