@@ -52,3 +52,5 @@ font:
 
   size: 12
 
+shell:
+  program: /usr/bin/zsh
