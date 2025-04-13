@@ -39,7 +39,6 @@ set visualbell
 set scrolloff=5
 
 " :colorscheme base16-onedark
-:colorscheme onedark
 let g:airline_theme='onedark'
 
 " :colorscheme gruvbox
