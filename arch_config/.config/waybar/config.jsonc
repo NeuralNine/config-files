@@ -1,0 +1,138 @@
+{
+	"layer": "top",
+	"position": "top",
+
+	"modules-left":   [ "custom/page1", "custom/page2", "custom/page3", "custom/page4","custom/page5","custom/page6","custom/page7","custom/page8","custom/page9","custom/page10"],
+	"modules-center": [ "hyprland/window" ],
+	"modules-right": [ "tray", "custom/separator", "network", "bluetooth", "custom/separator", "disk", "cpu", "memory", "pulseaudio", "custom/separator", "clock"],
+
+	"custom/page1": {
+		"exec": "~/.config/waybar/scripts/page.sh 1",
+		"exec-persistent": true,
+		"return-type": "json"
+	},
+	"custom/page2": {
+		"exec": "~/.config/waybar/scripts/page.sh 2",
+		"exec-persistent": true,
+		"return-type": "json"
+	},
+	"custom/page3": {
+		"exec": "~/.config/waybar/scripts/page.sh 3",
+		"exec-persistent": true,
+		"return-type": "json"
+	},
+	"custom/page4": {
+		"exec": "~/.config/waybar/scripts/page.sh 4",
+		"exec-persistent": true,
+		"return-type": "json"
+	},
+	"custom/page5": {
+		"exec": "~/.config/waybar/scripts/page.sh 5",
+		"exec-persistent": true,
+		"return-type": "json"
+	},
+	"custom/page6": {
+		"exec": "~/.config/waybar/scripts/page.sh 6",
+		"exec-persistent": true,
+		"return-type": "json"
+	},
+	"custom/page7": {
+		"exec": "~/.config/waybar/scripts/page.sh 7",
+		"exec-persistent": true,
+		"return-type": "json"
+	},
+	"custom/page8": {
+		"exec": "~/.config/waybar/scripts/page.sh 8",
+		"exec-persistent": true,
+		"return-type": "json"
+	},
+	"custom/page9": {
+		"exec": "~/.config/waybar/scripts/page.sh 9",
+		"exec-persistent": true,
+		"return-type": "json"
+	},
+	"custom/page10": {
+		"exec": "~/.config/waybar/scripts/page.sh 10",
+		"exec-persistent": true,
+		"return-type": "json"
+	},
+
+	"hyprland/window": { "format": "{title}", "max-length": 60 },
+	"tray":            { "icon-size": 16, "spacing": 10 },
+
+	"pulseaudio": {
+		"scroll-step": 5,
+		"max-volume": 150,
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"on-click-right": "pavucontrol",
+
+		"markup": "pango",
+		"format":  "<span color='#e5c07b'>{icon} </span> <span color='#ffffff'>{volume}%</span>",
+		"format-muted": "<span color='#e5c07b'> </span> muted",
+
+		"format-icons": {
+			"default": "",
+			"muted":   "",
+			"headphones": ""
+		}
+	},
+
+	"custom/separator": {
+		"exec": "echo '{\"text\":\"|\"}'",
+		"return-type": "json",
+		"format": "<span color='#555'>{text}</span>",
+		"markup": "pango",
+		"interval": 3600
+	},
+
+	"cpu": {
+		"interval": 1,
+		"markup": "pango",
+		"format": "<span color='#E06C75'> </span> {usage}%"
+	},
+
+	"memory": {
+		"interval": 2,
+		"markup": "pango",
+		"format": "<span color='#98C379'> </span> {percentage}%"
+	},
+
+	"disk": {
+		"interval": 30,
+		"path": "/",
+		"markup": "pango",
+		"format": "<span color='#C678DD'>󰋊 </span> {percentage_used}%"
+	},
+
+	"clock": {
+		"interval": 1,
+		"format":      "{:%Y-%m-%d  %H:%M:%S}",
+		"format-alt":  "{:%Y-%m-%d  %H:%M}"
+	},
+
+	"network": {
+		"interface": ["enp.*", "eth.*"],
+		"interval": 3,
+		"markup": "pango",
+
+		"format-ethernet":    "<span color='#61AFEF'>󰈀 </span> up",
+		"format-wifi":        "<span color='#61AFEF'> </span> {essid}",
+		"format-unknown":     "<span color='#61AFEF'>󰈂 </span> up",
+		"format-disconnected":"<span color='#E06C75'> </span> down",
+
+		"on-click": "nm-connection-editor"
+	},
+
+	"bluetooth": {
+		"interval": 5,
+		"markup": "pango",
+
+		"format":           "<span color='#5C6370'>󰂯 </span>disconnected",
+		"format-off":  "<span color='#5C6370'>󰂯 </span>power off",
+		"format-no-controller":  "<span color='#5C6370'>󰂯 </span>disabled",
+		"format-connected": "<span color='#61AFEF'>󰂯 </span>connected",
+
+		"on-click": "blueman-manager"
+	}
+}
+
